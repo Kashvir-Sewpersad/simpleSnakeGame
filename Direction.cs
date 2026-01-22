@@ -25,5 +25,27 @@ namespace simpleSnakeGame
         public Direction Opposite() {
             return new Direction(-RowOffSet, -ColOffSet);
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Direction direction &&
+                   RowOffSet == direction.RowOffSet &&
+                   ColOffSet == direction.ColOffSet;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(RowOffSet, ColOffSet);
+        }
+
+        public static bool operator ==(Direction left, Direction right)
+        {
+            return EqualityComparer<Direction>.Default.Equals(left, right);
+        }
+
+        public static bool operator !=(Direction left, Direction right)
+        {
+            return !(left == right);
+        }
     }
 }
