@@ -16,9 +16,66 @@ namespace simpleSnakeGame
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private readonly Dictionary<GridValue, ImageSource> grideValToImage = new()
+        {
+            {GridValue.Empty, Images.Empty},
+            { GridValue.Snake,Images.Body},
+            { GridValue.Food,Images.Food}
+
+
+        };
+
+        private readonly int rows = 15, cols = 15;
+        private readonly Image[,] gridImages;
+        private GameState gameState;
+
+
+
         public MainWindow()
         {
             InitializeComponent();
+
+            gridImages = SetupGrid();
+
+            gameState = new GameState(rows,cols);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private Image[,] SetupGrid() 
+        {
+            Image[,] images = new Image[rows, cols];
+            GameGrid.Rows = rows;
+            GameGrid.Columns = cols;
+
+
+            for (int r = 0; r < rows; r++) 
+            {
+                for (int c = 0; c < cols; c++)
+                {
+                    Image image = new Image
+                    {
+                        Source = Images.Empty
+                    };
+
+                    images[r, c] = image;
+                    GameGrid.Children.Add(image);
+
+                }
+            }
+            return images;
+        
+        }
+
+        private void DrawGrid()
+        
+       {
+        
+        
         }
     }
 }
