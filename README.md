@@ -3,7 +3,8 @@
 A classic **Snake** game implemented in **C#**  as a learning/project exercise.  
 The snake grows when eating food, moves around a grid, and the game ends on collision with walls or itself.
 
-https://github.com/user-attachments/assets/a5ada03e-0dad-40c8-9d8e-8694a0d85e0d
+
+![SNAKE GIF](https://github.com/user-attachments/assets/a19b9290-8d00-473f-b345-055b6b0eef95)
 
 ## Table of Contents
 - [Project Overview](#project-overview)
